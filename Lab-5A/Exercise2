@@ -1,0 +1,65 @@
+package Exercise2;
+
+public class Car {
+	int yearModel;
+	String make;
+	int speed;
+	int i;
+	Car(int yearModel,String make){
+		i = yearModel;
+		this.make = make;
+	}
+	public void setYearModel(int i) {
+		yearModel = i;
+	}
+	public int getYearModel() {
+		setYearModel(i);
+		return yearModel;
+	}
+	public String getMake() {
+		return make;
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void accelerate() {
+		speed += 5;
+	}
+	public void brake() {
+		speed -= 5;
+	}
+}
+
+
+***************************
+
+package Exercise2;
+
+public class CarDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Car car = new Car(2004,"Pordche");
+		System.out.println("Current status of the car:");
+		System.out.println("Year model:" + car.getYearModel());
+		System.out.println("Make:" + car.getMake());
+		System.out.println("Speed:" + car.getSpeed());
+		
+		System.out.println("\nAccelerating...");
+		car.accelerate();
+		car.accelerate();
+		car.accelerate();
+		car.accelerate();
+		car.accelerate();
+		System.out.println("Now the speed is " + car.getSpeed());
+		
+		System.out.println("\nBraking...");
+		car.brake();
+		car.brake();
+		car.brake();
+		car.brake();
+		car.brake();
+		System.out.println("Now the speed is " + car.getSpeed());
+	}
+
+}
