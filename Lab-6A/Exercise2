@@ -1,0 +1,21 @@
+package Exercise2;
+import javax.swing.JOptionPane;
+
+public class Exercise2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = JOptionPane.showInputDialog("Enter a string.");
+		int num = 1;
+		int i = 0;
+		while(i < str.length()) {
+			char character = str.charAt(i);
+			i++;
+			if(character == ' ') {
+				num++;
+			}
+		}
+		JOptionPane.showMessageDialog(null, "That string has " + num + " word(s) in it.");
+	}
+
+}
