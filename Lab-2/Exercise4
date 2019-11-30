@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Exercise4 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("How many books have you purchased this month? ");
+		int book = scan.nextInt();
+		int point;
+		if(book == 0) {
+			point = 0;
+		}else if(book == 1) {
+			point = 5;
+		}else if(book == 2) {
+			point = 15;
+		}else if(book == 3) {
+			point = 30;
+		}else {
+			point = 60;
+		}
+		System.out.println("You 've earned " + point + " points.");
+	}
+}
