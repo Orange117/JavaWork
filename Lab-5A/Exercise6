@@ -1,0 +1,67 @@
+package Exercise6;
+public class Rainfall {
+	double[] rain;
+	public Rainfall(double r[]) {
+		rain = new double[r.length];
+		for(int i = 0;i < r.length;i++) {
+			rain[i] = r[i];
+		}
+	}
+	double total = 0;
+	public double getTotalRainFall(){
+		for(int i = 0;i < rain.length;i++) {
+			total += rain[i];
+		}
+		return total;
+	}
+	public double getAverageRainFall() {
+		return total / 12;
+	}
+	public int HighestMonth() {
+		int maxi = 0;
+		double max = rain[maxi];
+		for(int i = 1;i < rain.length;i++) {
+			if(rain[i] > max) {
+				max = rain[i];
+				maxi = i;
+			}
+		}
+		return maxi;
+	}
+	public int LowestMonth() {
+		int mini = 0;
+		double min = rain[mini];
+		for(int i = 1;i < rain.length;i++) {
+			if(rain[i] < min) {
+				min = rain[i];
+				mini = i;
+			}
+		}
+		return mini;
+	}
+	public double getRainAt(int e) {
+		return rain[e];
+	}
+}
+
+******************************************
+package Exercise6;
+
+public class RainfallDemo {
+	public static void main(String[] args) {
+		double[] thisYear = {1.6, 2.1, 1.7, 3.5, 2.6, 3.7, 3.9, 2.6, 2.9, 4.3, 2.4, 3.7};
+		int high;
+		int low;
+		
+		Rainfall r = new Rainfall(thisYear);
+		
+		System.out.println("The total rainfall for this year is " + r.getTotalRainFall());
+		System.out.println("The average rainfall for this year is " + r.getAverageRainFall());
+		high = r.HighestMonth();
+		System.out.println("The month with the highest amount of rain is " + (high + 1) +
+				" with " + r.getRainAt(high) + "inches.");
+		low = r.LowestMonth();
+		System.out.println("The month with the lowest amount of rain is " + (low + 1) +
+				" with " + r.getRainAt(low) + "inches.");
+	}
+}
