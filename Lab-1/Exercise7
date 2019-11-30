@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Exercise7 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter the number of male students: ");
+		int male = scan.nextInt();
+		System.out.print("Enter the number of female students: ");
+		int female = scan.nextInt();
+		
+		System.out.println("Male: " + ((double)male/(double)(male + female)) * 100 + "%");
+		System.out.println("Male: " + ((double)female/(double)(male + female)) * 100 + "%");
+	}
+}
