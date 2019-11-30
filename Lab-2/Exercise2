@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Exercise2 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("This program will calculate your body mass index, or BMI.");
+		System.out.print("Enter your weight, in pounds: ");
+		int weight = scan.nextInt();
+		System.out.print("Enter your height, in inches: ");
+		int height = scan.nextInt();
+		double bmi = (weight * 703 / (double)(height*height));
+		System.out.println("Your body mass index (BMI) is " + bmi);
+		
+		if(bmi <= 18.5) {
+			System.out.println("You are underweight.");
+		}
+		else if(bmi > 18.5 && bmi <= 25) {
+			System.out.println("You are optimal.");
+		}else {
+			System.out.println("You are overweight.");
+		}
+	}
+}
