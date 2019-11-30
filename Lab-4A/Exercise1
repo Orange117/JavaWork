@@ -1,0 +1,14 @@
+
+public class Exercise1 {
+	public static void main(String[] args) {
+
+		String str = "New York";
+		int pos = 2;
+		showChar(str, pos);
+		System.exit(0);
+	}
+	
+	public static void showChar(String str, int pos) {
+		System.out.println(str.charAt(pos));
+	}
+}
