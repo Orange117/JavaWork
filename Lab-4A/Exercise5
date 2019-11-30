@@ -1,0 +1,34 @@
+import javax.swing.JOptionPane;
+public class Exercise5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double length = getLength();
+		double width = getWidth();
+		double area = getArea(length, width);
+		displayDate(length,width,area);
+	}
+
+	public static double getLength() {
+		String inputString;
+		inputString = JOptionPane.showInputDialog("Enter the rectangle's length.");
+		double length = Double.parseDouble(inputString);
+		return length;
+	}
+	
+	public static double getWidth() {
+		String inputString;
+		inputString = JOptionPane.showInputDialog("Enter the rectangle's width.");
+		double width = Double.parseDouble(inputString);
+		return width;
+	}
+	
+	public static double getArea(double length, double width) {
+		return width * length;
+	}
+	
+	public static void displayDate(double length, double width, double area) {
+		JOptionPane.showMessageDialog(null, "Length = " + length + "\n" + "Width = " + width
+										+ "\n" + "Area = " + area);
+	}
+}
