@@ -1,0 +1,137 @@
+package Exercise8;
+
+public class DriverExam {
+	final int PASSING = 15;
+	
+	private char[] correct = {'B', 'D', 'A', 'A',
+			'C', 'A', 'B', 'A',
+			'C', 'D', 'B', 'C',
+			'D', 'A', 'D', 'C',
+			'C', 'B', 'D', 'A'};
+	private char[] student;
+	private int[] missed;
+	private int numCorrect = 0;
+	private int numIncorrect = 0;
+	
+	public DriverExam(char[] s) {
+		student = new char[s.length];
+		
+		for(int i = 0;i < s.length;i++) {
+			student[i] = s[i];
+		}
+		gradeExam();
+	}
+	
+	private void gradeExam() {
+		for(int i = 0;i < student.length;i++) {
+			if(student[i] == correct[i]) {
+				numCorrect++;
+			}
+			else {
+				numIncorrect++;
+			}
+		}
+		makeMissedArray();
+	}
+	private void makeMissedArray() {
+		int m = 0;
+		if(numIncorrect > 0) {
+			missed = new int[numIncorrect];
+			for(int i = 0;i < student.length;i++) {
+				if(student[i] != correct[i]) {
+					missed[m] = i + 1;
+					m++;
+				}
+			}
+		}
+	}
+	
+	public boolean passed() {
+		boolean status;
+		if(numCorrect >= PASSING) {
+			status = true;
+		}else {
+			status = false;
+		}
+		return status;
+	}
+	
+	public int totalCorrect() {
+		return numCorrect;
+	}
+	public int totalIncorrect() {
+		return numIncorrect;
+	}
+	public int[] questionMissed() {
+		int[] temp = null;
+		if(missed != null) {
+			temp = new int[missed.length];
+			for(int i = 0;i < missed.length;i++) {
+				temp[i] = missed[i];
+			}
+		}
+		return temp;
+	}
+}
+
+****************************************
+package Exercise8;
+import java.util.Scanner;
+public class DriverTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String input;
+		final int NUM_ANSWERS = 20;
+		char[] answers = new char[NUM_ANSWERS];
+		int[] missedQuestions;
+		Scanner keyboard = new Scanner(System.in);
+		
+		System.out.println("Enter your answers to the exam questions.(Make sure CapsLock is NO!)");
+		for(int i = 0;i < answers.length;i++) {
+			System.out.print("Question " + (i + 1) + ": ");
+			input = keyboard.nextLine();
+			answers[i] = input.charAt(0);
+			
+			while(!valid(answers[i])) {
+				System.out.println("ERROR:Valid answers are A, B, C, or D");
+				System.out.println("Question " + (i + 1) + ":");
+				input = keyboard.next();
+				answers[i] = input.charAt(0);
+			}
+		}
+		DriverExam exam = new DriverExam(answers);
+		
+		missedQuestions = exam.questionMissed();
+		
+		System.out.println("Correct answers�� " + exam.totalCorrect());
+		System.out.println("Incorrects answers: " + exam.totalIncorrect());
+		
+		if(exam.passed()) {
+			System.out.println("You passed the exam.");
+			if(missedQuestions != null) {
+				System.out.println("You missed following questions:");
+				for(int i = 0;i < missedQuestions.length;i++) {
+					System.out.print(missedQuestions[i] + " ");
+				}
+			}
+		}
+		else {
+			System.out.println("You passed the exam.");
+			System.out.println("You missed following questions:");
+			for(int i = 0;i < missedQuestions.length;i++) {
+				System.out.print(missedQuestions[i] + " ");
+			}
+		}
+
+	}
+	public static boolean valid(char c) {
+		boolean status;
+		if(c == 'A' || c == 'B' || c == 'C' || c == 'D') {
+			status = true;
+		}else {
+			status = false;
+		}
+		return status;
+	}
+}
