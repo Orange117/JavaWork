@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Exercise6 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter the name of your favourite city: ");
+		String cityName = scan.nextLine();
+		
+		System.out.println("Number of characters: " + cityName.length());
+		System.out.println(cityName.toUpperCase());
+		System.out.println(cityName.toLowerCase());
+		System.out.println(cityName.charAt(0));
+		
+	}
+	
+}
