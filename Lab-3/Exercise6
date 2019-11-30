@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class Exercise6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("Enter an integer, or -99 to quit: ");
+		int num = scan.nextInt();
+		int min = num;
+		int max = num;
+		int flag = 0;
+		while(num != -99) {
+			System.out.print("Enter an integer, or -99 to quit: ");
+			num = scan.nextInt();
+			if(num == -99) {
+				break;
+			}
+			flag = 1;
+			if(num >= max) {
+				max = num;
+			}
+			if(num <= min) {
+				min = num;
+			}
+		}
+		if(flag == 1) {
+			System.out.println("Largest: " + max);
+			System.out.println("Smallest: " + min);
+		}else {
+			System.out.println("You did not enter any numbers.");
+		}
+		
+	System.exit(0);
+	}
+
+}
