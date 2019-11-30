@@ -1,0 +1,23 @@
+
+public class Exercise8 {
+	public static void main(String[] args) {
+		double cost = 1000 * 32.87;
+		double commission1 = cost * 0.02;
+		double total1 = cost + commission1;
+		
+		System.out.println("Joe paid $" + cost + " for the stock.");
+		System.out.println("Joe paid his broker a commission of $" + commission1 + " on the purchase");
+		System.out.println("So, Joe paid a total of $" + total1);
+		System.out.print("\n");
+		double sold = 1000 * 33.92;
+		double commission2 = sold * 0.02;
+		double total2 = sold - commission2;
+		
+		System.out.println("Joe sold the stock for $" + sold);
+		System.out.println("Joe paid his broker a commission of $" + commission2 + " on the sale");
+		System.out.println("So, Joe recieved a total of $" + total2);
+		System.out.print("\n");
+		
+		System.out.println("Joe's profit or loss: $" + (total2 - total1));
+	}
+}
