@@ -1,0 +1,66 @@
+package Exercise1;
+
+public class Employee {
+	String name;
+	int idNumber;
+	String department;
+	String position;
+	
+	public Employee(String string, int i, String string2, String string3) {
+		// TODO Auto-generated constructor stub
+		System.out.println("Emlloyee #2");
+		System.out.println("Name: " + string);
+		System.out.println("ID Number: " + i);
+		System.out.println("Department: " + string2);
+		System.out.println("Position: " + string3);
+		
+	}
+
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(String name, int num) {
+		// TODO Auto-generated constructor stub
+		System.out.println("Emlloyee #3");
+		System.out.println("Name: " + name);
+		System.out.println("ID Number: " + num);
+	}
+
+	public String setName(String name) {
+		return name;
+	}
+	public int setidNumber(int num) {
+		return num;
+	}
+	public String setDepartment(String dep) {
+		return dep;
+	}
+	public String setPosition(String post) {
+		return post;
+	}
+}
+
+
+
+*************************************
+package Exercise1;
+
+public class EmployeeDemo {
+	public static void main(String[] args) {
+		Employee employee1 = new Employee();
+		System.out.println("Employee #1");
+		System.out.println("Name: " + employee1.setName("Susan Meyers"));
+		System.out.println("ID Number: " + employee1.setidNumber(47899));
+		System.out.println("Department: " + employee1.setDepartment("Accounting"));
+		System.out.println("Position: " + employee1.setPosition("Vice President"));
+		
+		System.out.println();
+		Employee employee2 = new Employee("Mark Jones", 39119, "IT", "Programmer");
+		System.out.println();
+		
+		Employee employee3 = new Employee("Joy Rogers", 81774);
+		System.out.println("Department: " + employee3.setDepartment("Manufacturing"));
+		System.out.println("Position: "+ employee3.setPosition("Engineer"));
+	}
+}
