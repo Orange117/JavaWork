@@ -1,0 +1,115 @@
+package Exercise8;
+
+public class Exercise8 {
+	public static void main(String[] args) {
+		ParkedCar car = new ParkedCar("Volkswagen", "1972", "Red", "147RHZM", 125);
+		PoliceOfficer police = new PoliceOfficer("Joe Friday", "4788");
+		ParkingMeter meter = new ParkingMeter(60);
+		ParkingTicket ticket = police.partol(car, meter);
+		if(ticket != null) {
+			ticket.output();
+		}else {
+			System.out.println("The car is OK.");
+		}
+	}
+}
+class ParkedCar{
+	String make;
+	String model;
+	String color;
+	String licenseNumber;
+	int minutesParked;
+	
+	public ParkedCar(String mk, String mod, String clo, String lic, int min) {
+		// TODO Auto-generated constructor stub
+		make = mk;
+		model = mod;
+		color = clo;
+		licenseNumber = lic;
+		minutesParked = min;
+	}
+	
+}
+
+class ParkingMeter{
+	int minutesPurchased;
+
+	public ParkingMeter(int i) {
+		// TODO Auto-generated constructor stub
+		minutesPurchased = i;
+	}
+
+	public int getMinutesPurchased() {
+		return minutesPurchased;
+	}
+
+	public void setMinutesPurchased(int minutesPurchased) {
+		this.minutesPurchased = minutesPurchased;
+	}
+}
+
+class ParkingTicket{
+	ParkedCar car = null;
+	PoliceOfficer officer = null;
+	double fine;
+	int minutes;
+	public final double BASE_FINE = 25.0;
+	public final double HOURLY_FINE = 10.0;
+	
+	public ParkingTicket(ParkedCar aCar, PoliceOfficer anOfficer, int min) {
+	       car = aCar;
+	       officer = anOfficer;
+	       minutes = min;
+
+	       calculateFine();
+	}
+
+	private void calculateFine() {
+	       double hours = minutes / 60.0;
+	       int hoursAsInt = (int) hours;
+	       if ((hours - hoursAsInt) > 0) {
+	           hoursAsInt++;
+	       }
+	       fine = BASE_FINE;
+	       fine += (hoursAsInt * HOURLY_FINE);
+	       
+	}
+	public void output(){
+		
+		System.out.println("Car Date:");
+		System.out.println("Make: " + car.make);
+		System.out.println("Model: " + car.model);
+		System.out.println("Color: " + car.color);
+		System.out.println("License Number: " + car.licenseNumber);
+		System.out.println("Minutes Parked: " + car.minutesParked);
+		System.out.println();
+		System.out.println("Officer Date:");
+		System.out.println("Name: " + officer.name);
+		System.out.println("BadgeNumber: " + officer.badgeNumber);
+		System.out.println();
+		System.out.println("Mimutes Illegally Parked: " + minutes);
+		System.out.println("Fines: $" + String.format("%.2f", fine));
+		
+	}
+}
+
+class PoliceOfficer{
+	String name;
+	String badgeNumber;
+	int illegalMinutes;
+	public PoliceOfficer(String name, String num) {
+		this.name = name;
+		badgeNumber = num;
+	}
+	ParkingTicket partol(ParkedCar car, ParkingMeter meter) {
+		ParkingTicket ticket = null;
+		
+		illegalMinutes = car.minutesParked - meter.minutesPurchased;
+		if(illegalMinutes > 0) {
+			//illegally
+			ticket = new ParkingTicket(car, this, illegalMinutes);
+		}
+		
+		return ticket;
+	}
+}
