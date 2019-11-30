@@ -1,0 +1,17 @@
+
+public class Exercise2 {
+	public static void main(String[] args) {
+		String firstName = "Chen";
+		String middleName = "Kai";
+		String lastName = "Xuan";
+	
+		char firstInitial = firstName.charAt(0);
+		char middleInitial = middleName.charAt(0);
+		char lastInitial = lastName.charAt(0);
+		System.out.println("Name: " + firstName + " " + middleName + " " + lastName);
+		System.out.print("Initials: ");
+		System.out.print(firstInitial);
+		System.out.print(middleInitial);
+		System.out.println(lastInitial);
+	}
+}
