@@ -1,0 +1,66 @@
+package Exercise3;
+
+public class PersonalInformation {
+	String name;
+	int age;
+	String address;
+	String phone;
+	
+	public void setName(String name) {
+		this.name = name;
+		System.out.println("Name: " + getName());
+	}
+	public String getName() {
+		return name;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+		System.out.println("Age: " + getAge());
+	}
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+		System.out.println("Address: " + getAddress());
+	}
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setPhone(String phone) {
+		this.phone = phone;
+		System.out.println("Phone: " + getPhone());
+	}
+	public String getPhone() {
+		return phone;
+	}
+}
+
+*******************************************
+package Exercise3;
+
+public class PersonalInformationDemo {
+	public static void main(String[] args) {
+		PersonalInformation myInfo = new PersonalInformation();
+		PersonalInformation myFriend1 = new PersonalInformation();
+		PersonalInformation myFriend2 = new PersonalInformation();
+		System.out.println("My Information:");
+		myInfo.setName("Joe Mahoney");
+		myInfo.setAge(27);
+		myInfo.setAddress("724 22nd Street");
+		myInfo.setPhone("(555)555-1234");
+		System.out.println("\nFriend #1's information:");
+		myFriend1.setName("Geri Rose");
+		myFriend1.setAge(24);
+		myFriend1.setAddress("149 East Bay Street");
+		myFriend1.setPhone("(555)555-5678");
+		System.out.println("\nFriend #2's information:");
+		myFriend2.setName("John Carbonni");
+		myFriend2.setAge(28);
+		myFriend2.setAddress("22 King Street");
+		myFriend2.setPhone("(555)555-0123");
+	}
+}
