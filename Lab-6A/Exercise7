@@ -1,0 +1,27 @@
+package Exercise7;
+import java.lang.Math;
+public class Exercise7 {
+	public static void main(String[] args) {
+		double radius1 = 20.0;
+		int length = 10;
+		int width = 20;
+		double radius2 = 10.0;
+		double height = 15.0;
+		System.out.println("The area of a circle with a radius of "
+				+ radius1 + " is " + String.format("%.2f", Calculating(radius1)));
+		System.out.println("The area of a rectange with a length of " + length + " and a width of "+
+				width + " is " + String.format("%.2f", Calculating(length, width)));
+		System.out.println("The area of a cylinder with a radius of " + radius2 + " and a height of " +
+				height + " is " + String.format("%.2f", Calculating(radius2, height)));
+	}
+	
+	public static double Calculating(double r) {
+		return Math.PI * r * r;
+	}
+	public static double Calculating(int length, int width) {
+		return length * width;
+	}
+	public static double Calculating(double r, double height) {
+		return height * Math.PI * r * r;
+	}
+}
