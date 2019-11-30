@@ -1,0 +1,46 @@
+package Exercise5;
+
+import java.util.Random;
+
+public class Coin {
+	String sideUp;
+	public Coin() {
+		toss();
+	}
+	public void toss() {
+		Random rand = new Random();
+		
+		int value = rand.nextInt(2);
+		
+		if(value == 0) {
+			sideUp = "heads";
+		}else {
+			sideUp = "tails";
+		}
+	}
+	public String getSideUp() {
+		return sideUp;
+	}
+}
+
+********************************
+package Exercise5;
+
+public class CoinTossSimulator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final int NUM_TOSSES = 20;
+		Coin myCoin = new Coin();
+		
+		System.out.println("The side initially facing up:" + myCoin.getSideUp());
+		
+		System.out.println("Now I will toss the coin " + NUM_TOSSES + " times");
+		for(int i = 0;i < NUM_TOSSES;i++) {
+			myCoin.toss();
+			
+			System.out.println("Toss: " + myCoin.getSideUp());
+		}
+	}
+
+}
