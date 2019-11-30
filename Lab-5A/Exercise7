@@ -1,0 +1,23 @@
+package Exercise7;
+import java.util.Scanner;
+public class LargerThanNDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int number;
+		int[] numbers = {1, 23, 43, 54, 4, 34, 2, 5, 7, 9};
+		System.out.print("Enter the number:");
+		Scanner keyboard = new Scanner(System.in);
+		number = keyboard.nextInt();
+		System.out.println("The numbers larger than number:");
+		displayGreaterThan(numbers,number);
+	}
+
+	private static void displayGreaterThan(int[] array, int n) {
+		for(int i = 0;i < array.length;i++) {
+			if(array[i] > n) {
+				System.out.println(array[i]);
+			}
+		}
+	}
+}
