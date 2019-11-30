@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Exercise1 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int sum = 0;
+		while(true) {
+			System.out.print("Enter a positive nonzero number: ");
+			int num = scan.nextInt();
+			if(num == 0) {
+				System.out.print("Invalid.");
+			}else {
+				for(int i = 1;i <= num; i++) {
+					sum += i;
+				}
+				System.out.println("The sum of all the integers from 1 through " + num + " is " + sum);
+				break;
+			}
+		}
+		
+	}
+}
