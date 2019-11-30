@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Exercise5 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter the purchase amount: ");
+		int purchase = scan.nextInt();
+		
+		double stateTax = 0.04 * (double)purchase;
+		double countyTax = 0.02 * (double)purchase;
+		
+		double totalTax = stateTax + countyTax;
+		
+		double cost = purchase + totalTax;
+		
+		System.out.println("Purchase amount: $" + purchase);
+		System.out.println("State tax: $" + stateTax);
+		System.out.println("County tax: $" + countyTax);
+		System.out.println("Total tax: $" + totalTax);
+		System.out.println("Total cost: $" + cost);
+		
+	}
+}
