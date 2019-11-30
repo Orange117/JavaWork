@@ -1,0 +1,31 @@
+
+import javax.swing.JOptionPane;
+
+public class Exercise4 {
+	public static void main(String[] args) {
+		String name;
+		char character;
+		String inputString;
+		int k = 0;
+		name = JOptionPane.showInputDialog("Enter a string.");
+		
+		inputString = JOptionPane.showInputDialog("Enter a letter contained in the string.");
+		
+		
+		String name1 = name.toUpperCase();
+		
+		String letter1 = inputString.toUpperCase();
+		
+		char letter = letter1.charAt(0);
+		
+		for(int i = 0;i < name1.length();i++) {
+			if(letter == name1.charAt(i)) {
+				k++;
+			}
+		}
+		JOptionPane.showMessageDialog(null, "The letter " + letter1 + " appears " + k + " times in the string"
+				+ name + ".");
+		
+		System.exit(0);
+	}
+}
