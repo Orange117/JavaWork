@@ -1,0 +1,9 @@
+
+public class Exercise4 {
+	public static void main(String []args) {
+		double sales = 4600000.0;
+		double percent = 0.62;
+		
+		System.out.println("East coast sales prediction: $" + (sales * percent));
+	}
+}
