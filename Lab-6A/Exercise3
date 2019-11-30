@@ -1,0 +1,20 @@
+package Exercise3;
+import javax.swing.JOptionPane;
+public class Exercise3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Exercise3 a = new Exercise3();
+		a.Sentence();
+	}
+
+	public void Sentence(){
+		String str1 = JOptionPane.showInputDialog("Enter a string.");
+		for(int i = 0;i < str1.length();i++) {
+			if(i == 0 || str1.charAt(i-1) == '.') {
+				str1 = str1.substring(0, i) + str1.substring(i, i + 1).toUpperCase() + str1.substring(i+1);
+			}
+		}
+		JOptionPane.showMessageDialog(null, str1);
+	}
+}
