@@ -1,0 +1,66 @@
+import java.util.Scanner;
+public class Exercise4 {
+	public static void main(String[] args) {
+		int[] grades = new int[6];
+		Scanner scan = new Scanner(System.in);
+		for(int i = 0;i < 5;i++) {
+			String num;
+			if(i == 0) {
+				num = "first";
+			}else if(i == 1) {
+				num = "second";
+			}else if(i == 2) {
+				num = "third";
+			}else if(i == 3) {
+				num = "fourth";
+			}else {
+				num = "fifth";
+			}
+			System.out.print("Enter the " + num + " test score: ");
+			grades[i] = scan.nextInt();
+		}
+		
+		double avg = calcAverage(grades);
+		grades[5] = (int) avg;
+		String letter;
+		for(int i = 0;i < grades.length;i++) {
+			letter = determineGrade(grades[i]);
+			if(i != 5) {
+				System.out.println("Test " + i + ": " + letter);
+			}else {
+				System.out.println("Average score: " + String.format("%.2f", avg));
+				System.out.println("Average Letter Grade: " + letter);
+			}
+		}
+		
+	}
+	
+	
+	public static double calcAverage(int[] grades) {
+		int sum = 0;
+		double avg;
+		for(int i = 0;i < 5;i++) {
+			sum += grades[i];
+		}
+		avg = (double)sum/5;
+		return avg;
+		
+	}
+	
+	
+	public static String determineGrade(int grade) {
+		String letter;
+		if(grade <= 100 && grade >= 90) {
+			letter = "A";
+		}else if(grade <= 89 && grade >= 80) {
+			letter = "B";
+		}else if(grade <= 79 && grade >= 70) {
+			letter = "C";
+		}else if(grade <= 69 && grade > 60) {
+			letter = "D";
+		}else {
+			letter = "F";
+		}
+		return letter;
+	}
+}
