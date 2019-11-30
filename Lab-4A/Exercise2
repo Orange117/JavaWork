@@ -1,0 +1,21 @@
+import javax.swing.JOptionPane;
+public class Exercise2 {
+	public static double calculateRetail(double wholesale, double markupPercent) {
+		return markupPercent * wholesale * 0.01 + wholesale;
+		
+	}
+	public static void main(String[] args) {
+		String inputString;
+		double cost;
+		double percentage;
+		inputString = JOptionPane.showInputDialog("Enter the item's wholesale cost.");
+		cost = Double.parseDouble(inputString);
+		inputString = JOptionPane.showInputDialog("Enter the item's markyp percantage.");
+		percentage = Double.parseDouble(inputString);
+		JOptionPane.showMessageDialog(null, "The item's retail is $" 
+		+ String.format("%.2f", calculateRetail(cost, percentage)));
+	}
+	
+	
+}
+
