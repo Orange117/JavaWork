@@ -1,0 +1,32 @@
+package Exercise6;
+import java.util.Scanner;
+
+public class Exercise6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter a string and I will convert it to Pig Latin.");
+		System.out.print("> ");
+		Scanner keyboard= new Scanner(System.in);
+		
+		String str = null;
+	    str = keyboard.nextLine();
+		String a[] = str.split("\\s+");//�ָ�����
+		String [] b=new String[a.length];
+		for(int i = 0;i < a.length;i++)
+		{
+			String temp = null;
+			temp = a[i] + a[i].charAt(0);
+			
+			//a[i].charAt(0)=' ';
+			temp = temp.substring(1);
+			temp = temp+"AY";
+			b[i] = temp;
+		}
+		for(int i=0;i < a.length;i++)
+		{
+			System.out.print(b[i] + " ");
+		}
+	}
+
+}
