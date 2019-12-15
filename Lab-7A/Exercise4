@@ -1,0 +1,86 @@
+package Exercise4;
+import java.util.Random;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+public class Exercise4 extends Application{
+	private static final String[] Resources = {"Apple", "Banana", "Cherries"};
+	private static final double INIT_MONEY = 0.0;
+	private static double totalAmcountWon = 0.0;
+	private Label promatLabel, wonLabel, totalLabel, resultLabel;
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		Image first = new Image("file:BlankFruit.png");
+		ImageView imageView1 = new ImageView(first);
+		ImageView imageView2 = new ImageView(first);
+		ImageView imageView3 = new ImageView(first);
+		resultLabel = new Label("Insert an amount to play");
+		promatLabel = new Label("Amount Inserted:$ ");
+		wonLabel = new Label("Amount Won This Spin:$ " + INIT_MONEY);
+		totalLabel = new Label("Total Amount Won:$ " + totalAmcountWon);
+		Button button = new Button("Spin");
+		
+		TextField input = new TextField();
+		
+		HBox hbox = new HBox(10, imageView1, imageView2, imageView3);
+		hbox.setAlignment(Pos.CENTER);
+		HBox hbox1 = new HBox(10, promatLabel, input);
+		hbox1.setAlignment(Pos.CENTER);
+		HBox hbox2 = new HBox(10, wonLabel);
+		hbox2.setAlignment(Pos.CENTER);
+		HBox hbox3 = new HBox(10, totalLabel);
+		hbox3.setAlignment(Pos.CENTER);
+		
+		
+		
+		button.setOnAction(event -> {
+			Random random = new Random();
+			int num1 = random.nextInt(Resources.length);
+			int num2 = random.nextInt(Resources.length);
+			int num3 = random.nextInt(Resources.length);
+			
+			imageView1.setImage(new Image("file:" + Resources[num1] + ".png"));
+			imageView2.setImage(new Image("file:" + Resources[num2] + ".png"));
+			imageView3.setImage(new Image("file:" + Resources[num3] + ".png"));
+			
+			double wonThis = Double.parseDouble(input.getText());
+			if(num1 == num2 && num2 == num3) {
+				wonThis *= 3;
+				resultLabel.setText("SWEET!TRIPLE WINx3!!");
+			} else if(num1 == num2 || num1 == num3 || num2 == num3) {
+				wonThis *= 2;
+				resultLabel.setText("Sweet!DOUBLE WINx2!!");
+			} else {
+				wonThis *= 0;
+				resultLabel.setText("No Luck.Play again!");
+			}
+			totalAmcountWon += wonThis;
+			wonLabel.setText("Amount Won This Spin:$" + String.format("%.2f", wonThis));
+			
+			totalLabel.setText("Total Amount Won:$" + String.format("%.2f", totalAmcountWon));
+		});
+		
+		VBox vbox = new VBox(10, hbox, hbox1, hbox2, hbox3, button, resultLabel);
+		vbox.setAlignment(Pos.CENTER);
+		Scene scene = new Scene(vbox);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+}
