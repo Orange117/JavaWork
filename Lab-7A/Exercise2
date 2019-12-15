@@ -1,0 +1,63 @@
+package Exercise2;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.geometry.Pos;
+import javafx.geometry.Insets;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.TextField;
+
+public class Exercise2  extends Application{
+	private Label TipLabel;
+	private Label TaxLabel;
+	private Label TotalLabel;
+	private TextField MealTextField;
+	public static void main(String[] args) {
+		launch(args);
+	}
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		MealTextField = new TextField();
+		Label promptLabel = new Label("Meal charge:");
+		Button button = new Button("Calculate");
+		button.setOnAction(new CalcuButtonHandler());
+		
+		
+		TipLabel = new Label();
+		TaxLabel = new Label();
+		TotalLabel = new Label();
+		HBox hbox1 = new HBox(10, promptLabel, MealTextField);
+		HBox hbox2 = new HBox(10, button);
+		hbox1.setAlignment(Pos.CENTER);
+		hbox2.setAlignment(Pos.CENTER);
+		VBox vbox = new VBox(10, hbox1, TipLabel, TaxLabel, TotalLabel, hbox2);
+		vbox.setPadding(new Insets(10));
+		
+		Scene scene = new Scene(vbox, 300, 200);
+		
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+	class CalcuButtonHandler implements EventHandler<ActionEvent>{
+
+		@Override
+		public void handle(ActionEvent event) {
+			// TODO Auto-generated method stub
+			Double cost = Double.parseDouble(MealTextField.getText());
+			Double Tip = cost * 0.18;
+			Double Tax = cost * 0.07;
+			Double Total = Tip + Tax + cost;
+			TipLabel.setText("Tip:" + String.format("%.2f", Tip));
+			TaxLabel.setText("Tax:" + String.format("%.2f", Tax));
+			TotalLabel.setText("Total:" + String.format("%.2f", Total));
+		}
+		
+	}
+}
