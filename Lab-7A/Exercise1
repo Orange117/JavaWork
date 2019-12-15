@@ -1,0 +1,65 @@
+package Exercise1;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.geometry.Pos;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
+public class Exercise1 extends Application{
+	private Label label;
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		label = new Label();
+		Button button1 = new Button("Sinister");
+		Button button2 = new Button("Dexter");
+		Button button3 = new Button("Medium");
+		button1.setOnAction(new ButtonClickHandler1());
+		button2.setOnAction(new ButtonClickHandler2());
+		button3.setOnAction(new ButtonClickHandler3());
+		
+		VBox vbox = new VBox(10, button1, button2, button3, label);
+		
+		vbox.setAlignment(Pos.CENTER);
+		
+		Scene scene = new Scene(vbox, 200, 200);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	class ButtonClickHandler1 implements EventHandler<ActionEvent>{
+
+		@Override
+		public void handle(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			label.setText("Left");
+		}
+		
+	}
+	class ButtonClickHandler2 implements EventHandler<ActionEvent>{
+
+		@Override
+		public void handle(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			label.setText("Right");
+		}
+		
+	}
+	class ButtonClickHandler3 implements EventHandler<ActionEvent>{
+
+		@Override
+		public void handle(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			label.setText("Center");
+		}
+		
+	}
+}
