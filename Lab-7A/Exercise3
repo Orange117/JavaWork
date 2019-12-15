@@ -1,0 +1,62 @@
+package Exercise3;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import java.util.Random;
+public class Exercise3 extends Application{
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		Button button = new Button("Toss");
+
+		ImageView FirstView = new ImageView();
+		ImageView SecondView = new ImageView();
+		
+		FirstView.setFitHeight(200);
+		FirstView.setFitWidth(200);
+		FirstView.setImage(new Image("file:///E:/JavaProgram/Eclipse/Lab-7A/src/Exercise3/Die1.png"));
+		
+		SecondView.setFitHeight(200);
+		SecondView.setFitWidth(200);
+		SecondView.setImage(new Image("file:///E:/JavaProgram/Eclipse/Lab-7A/src/Exercise3/Die1.png"));
+		
+		FirstView.setPreserveRatio(true);
+		SecondView.setPreserveRatio(true);
+		
+		
+		HBox hbox = new HBox(10, FirstView, SecondView);
+		VBox vbox = new VBox(10, hbox, button);
+		vbox.setAlignment(Pos.CENTER);
+		vbox.setPadding(new Insets(10));
+		Scene scene = new Scene(vbox);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+		
+		button.setOnAction(event -> {
+			Random random = new Random();
+			int number1 = random.nextInt(6) + 1;
+			int number2 = random.nextInt(6) + 1;
+			FirstView.setImage(new Image("file:///E:/JavaProgram/Eclipse/Lab-7A/src/Exercise3/Die" + number1 + ".png"));
+			SecondView.setImage(new Image("file:///E:/JavaProgram/Eclipse/Lab-7A/src/Exercise3/Die" + number2 + ".png"));
+			
+			
+		});
+		
+		
+	}
+
+}
